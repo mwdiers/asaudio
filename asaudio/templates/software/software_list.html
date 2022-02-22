@@ -7,6 +7,7 @@
 
 {% block content %}
     <h2>{{ category.name }}</h2>
+    {% if category.notes %}<div class="category_notes">{{ category.notes|safe }}</div>{% endif %}
     <ul class="developer_list">
         {% regroup object_list by developer as developer_list %}
         {% for developer, software_list in developer_list %}
