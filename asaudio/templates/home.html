@@ -4,8 +4,14 @@
 {% block title %}Apple Silicon Native Audio Software{% endblock %}
 
 {% block content %}
+    <h4>Info</h4>
+    <p>This is a database of audio production software that has been released or updated with native Apple Silicon support.</p>
+    <p>Discussion, submissions, corrections, and suggestions may be found at the original
+        <a href="https://www.kvraudio.com/forum/viewtopic.php?f=16&t=556728">KVR Audio forum post</a> where
+        this project began.</p>
+    <p>Your host is teilo.</p>
     <h2>Choose a Category:</h2>
-    <ul>
+    <ul class="category_list">
         {% for category in categories %}
             <li><a href="{% url 'software-list-category' category.pk %}">{{ category.name }}</a></li>
         {%  endfor %}

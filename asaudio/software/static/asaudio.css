@@ -6,8 +6,20 @@ ul.software_list {
     list-style-type: square;
 }
 
+ul.category_list {
+    list-style-type: none;
+}
+
+ul.category_list li a {
+    font-weight: bold;
+}
+
 h3.developer_name {
     font-size: 18pt;
     margin: 1em 0 0 0;
     line-height: 1.2;
+}
+
+h4 {
+    margin-top: 0.5em;
 }
