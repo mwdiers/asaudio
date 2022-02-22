@@ -12,14 +12,15 @@
         {% for developer, software_list in developer_list %}
             <li><h3 class="developer_name">{{ developer.name }}</h3>
                 {% if developer.url %}<p><a href="{{ developer.url }}">{{ developer.url }}</a></p>{% endif %}
-            <ul class="software_list">
-                {% for software in software_list %}
-                    <li><strong>{{ software.name }}</strong>
-                        {% if software.version %}<em>&mdash; {{ software.version }}</em>{% endif %}
-                    {% if software.notes %}<p>{{ software.notes|safe }}</p>{% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
+                {% if developer.notes %}<p>{{ developergit.notes|safe }}</p>{% endif %}
+                <ul class="software_list">
+                    {% for software in software_list %}
+                        <li><strong>{{ software.name }}</strong>
+                            {% if software.version %}<em>&mdash; {{ software.version }}</em>{% endif %}
+                        {% if software.notes %}<p>{{ software.notes|safe }}</p>{% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
             </li>
         {% endfor %}
     </uli>
