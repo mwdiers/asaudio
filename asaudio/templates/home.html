@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}Apple Silicon Native Audio Software{% endblock %}
+
+{% block content %}
+    <h2>Choose a Category:</h2>
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'software-list-category' category.pk %}">{{ category.name }}</a></li>
+        {%  endfor %}
+    </ul>
+{% endblock %}
