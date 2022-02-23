@@ -13,4 +13,14 @@
             <li><a href="{% url 'software-list-category' category.pk %}">{{ category.name }}</a></li>
         {%  endfor %}
     </ul>
+
+    <h2>Recent Updates</h2>
+    <ul style="list-style: none;">
+    {% for item in recent_updates %}
+        <li>{{ item.updated|date:"d-M-Y" }} &mdash; {{ item.developer.name }} &mdash; {{ item.name }}{% if item.version %},
+            v. {{ item.version }}{% endif %}
+            &mdash; {{ item.category.name }}
+        </li>
+    {% endfor %}
+    </ul>
 {% endblock %}

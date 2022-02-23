@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.db.models.functions import Lower
@@ -6,8 +7,13 @@ from .models import Category, Software
 
 def home(request):
     categories = Category.objects.order_by("sequence")
+    recent_updates = Software\
+        .objects.select_related("developer", "category")\
+        .filter(updated__gte=datetime.today()-timedelta(days=15))\
+        .order_by("-updated")[:50]
     context = {
         "categories": categories,
+        "recent_updates": recent_updates,
     }
     return render(request, 'home.html', context=context)
 
