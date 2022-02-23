@@ -1,18 +1,12 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
+{%  load snippets_extras %}
 
 {% block title %}Apple Silicon Native Audio Software{% endblock %}
 
 {% block content %}
     <h2>Info</h2>
-    <p>This is a database of audio production software that has been released or updated with native Apple Silicon support.</p>
-    <p>Plugins are UB2 and will work on both Intel and Apple Silicon unless otherwise specified. AAX versions of
-        plugins are not native, since Avid has not yet released native versions of any of their hosts or SDKs.</p>
-    <p><strong>Note:</strong> Versions numbers are the first known AS-native version of the software, not necessarily the most current version.</p>
-    <p>Discussion, submissions, corrections, and suggestions may be found at the original
-        <a href="https://www.kvraudio.com/forum/viewtopic.php?f=16&t=556728">KVR Audio forum post</a> where
-        this project began.</p>
-    <p>Your host is teilo.</p>
+    {% get_snippet "home_info" %}
     <h2>Choose a Category:</h2>
     <ul class="category_list">
         {% for category in categories %}
