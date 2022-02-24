@@ -51,6 +51,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "asaudio.software.context_processors.categories",
             ],
         },
     },
@@ -90,5 +91,5 @@ STATIC_ROOT = f"{BASE_DIR}/static"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 BOOTSTRAP5 = {
-    "theme_url": "/static/bootstrap.min.css"
+    "theme_url": "/static/software/css/bootstrap.min.css"
 }
