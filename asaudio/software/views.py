@@ -13,8 +13,8 @@ from .models import Category, Software, Developer
 def home(request):
     recent_updates = Software\
         .objects.select_related("developer", "category")\
-        .filter(updated__gte=tz.now()-tz.timedelta(days=15))\
-        .order_by("-updated")[:50]
+        .filter(created__gte=tz.now()-tz.timedelta(days=15))\
+        .order_by("-created")[:50]
     context = {
         "recent_updates": recent_updates,
     }
@@ -64,7 +64,7 @@ class SearchView(FormView):
                 if cleaned_data["title"]:
                     software = software.filter(name__icontains=cleaned_data["title"])
                 if software.count():
-                    software = software.order_by(Lower("developer__name"), Lower("category__name"), Lower("name"))
+                    software = software.order_by(Lower("developer__name"), "category__sequence", Lower("name"))
                 else:
                     software = None
             else:

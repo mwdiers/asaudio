@@ -17,7 +17,7 @@
         </thead>
     {% for item in recent_updates %}
         <tr>
-            <td>{{ item.updated|date:"d-M-Y" }}</td>
+            <td>{{ item.created|date:"d-M-Y" }}</td>
             <td>{{ item.developer.name }}</td>
             <td>{{ item.name }}</td>
             <td>{% if item.version %}{{ item.version }}{% endif %}</td>
