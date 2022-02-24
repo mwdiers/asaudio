@@ -7,22 +7,24 @@
     {% get_snippet "home_info" %}
 
     <h2>Recent Updates</h2>
-    <table class="table table-striped">
-        <thead>
-            <th>Date</th>
-            <th>Developer</th>
-            <th>Software</th>
-            <th>Version</th>
-            <th>Category</th>
-        </thead>
-    {% for item in recent_updates %}
-        <tr>
-            <td>{{ item.created|date:"d-M-Y" }}</td>
-            <td>{{ item.developer.name }}</td>
-            <td>{{ item.name }}</td>
-            <td>{% if item.version %}{{ item.version }}{% endif %}</td>
-            <td>{{ item.category.name }}</td>
-        </tr>
-    {% endfor %}
-    </table>
+    <div class="table-responsive-sm">
+        <table class="table table-striped">
+            <thead>
+                <th>Date</th>
+                <th>Developer</th>
+                <th>Software</th>
+                <th>Version</th>
+                <th>Category</th>
+            </thead>
+        {% for item in recent_updates %}
+            <tr>
+                <td>{{ item.created|date:"d-M-Y" }}</td>
+                <td>{{ item.developer.name }}</td>
+                <td>{{ item.name }}</td>
+                <td>{% if item.version %}{{ item.version }}{% endif %}</td>
+                <td>{{ item.category.name }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
 {% endblock %}
