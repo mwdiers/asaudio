@@ -19,7 +19,3 @@ h3.developer_name {
     margin: 1em 0 0 0;
     line-height: 1.2;
 }
-
-.table-responsive .table {
-    max-width: none;
-}
