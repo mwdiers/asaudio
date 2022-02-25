@@ -13,7 +13,7 @@ from .models import Category, Software, Developer
 def home(request):
     recent_updates = Software\
         .objects.select_related("developer", "category")\
-        .filter(created__gte=tz.now()-tz.timedelta(days=15))\
+        .filter(created__gte=tz.now()-tz.timedelta(days=60))\
         .order_by("-created")[:50]
     context = {
         "recent_updates": recent_updates,
