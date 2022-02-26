@@ -14,8 +14,15 @@ ul.category_list li a {
     font-weight: bold;
 }
 
+ul.developer_list li p {
+    margin-bottom: 8px;
+}
+
+.developer_category {
+    margin: 10px 0 4px 0;
+}
+
 h3.developer_name {
-    font-size: 18pt;
     margin: 1em 0 0 0;
     line-height: 1.2;
 }
