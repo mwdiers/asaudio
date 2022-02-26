@@ -11,7 +11,7 @@
             {% regroup software_list by category as category_list %}
             <ul class="category_list">
             {% for category, category_software_list in category_list %}
-                <li><h3 class="p-2">{{ category.name }}</h3>
+                <li><h3 class="p-1">{{ category.name }}</h3>
                     <ul class="software_list">
                         {% for title in category_software_list %}
                             <li><strong>{{ title.name }}</strong>
