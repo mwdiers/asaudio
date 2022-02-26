@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
 
-{% block title %}Apple Silicon Native Audio Software{% endblock %}
-
-
-
 {% block content %}
     <h2>{{ category.name }}</h2>
     {% if category.notes %}<div class="category_notes">{{ category.notes|safe }}</div>{% endif %}

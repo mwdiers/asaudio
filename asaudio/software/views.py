@@ -83,3 +83,7 @@ class DeveloperView(DetailView):
         context = super().get_context_data(**kwargs)
         context["software_list"] = self.object.software_set.all().order_by("category", "name")
         return context
+
+
+class DeveloperListView(ListView):
+    model = Developer

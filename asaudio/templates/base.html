@@ -30,6 +30,7 @@
                                 {%  endfor %}
                             </ul>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'developer-list' %}">Developers</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'search' %}">Search</a></li>
                     </ul>
                 </div>
@@ -42,6 +43,4 @@
         {% block content %}(no content){% endblock %}
         </div>
     </div>
-
-
 {% endblock %}

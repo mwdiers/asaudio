@@ -14,6 +14,10 @@ ul.category_list li a {
     font-weight: bold;
 }
 
+ul.developer_list li {
+    margin-bottom: 2px;
+}
+
 ul.developer_list li p {
     margin-bottom: 8px;
 }
@@ -25,4 +29,8 @@ ul.developer_list li p {
 h3.developer_name {
     margin: 1em 0 0 0;
     line-height: 1.2;
+}
+
+a.developer_link {
+    text-decoration: none;
 }
