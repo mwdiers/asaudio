@@ -19,7 +19,7 @@
         {% for item in recent_updates %}
             <tr>
                 <td>{{ item.created|date:"d-M-Y" }}</td>
-                <td>{{ item.developer.name }}</td>
+                <td><a href="{% url "developer" item.developer.pk %}">{{ item.developer.name }}</a></td>
                 <td>{{ item.name }}</td>
                 <td>{% if item.version %}{{ item.version }}{% endif %}</td>
                 <td>{{ item.category.name }}</td>

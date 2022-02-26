@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
+from django.views.generic.detail import DetailView
 from django.db.models.functions import Lower
 from django.db.models import Q
 from django.utils import timezone as tz
@@ -74,3 +75,11 @@ class SearchView(FormView):
         return super().get(request, *args, **kwargs)
 
 
+class DeveloperView(DetailView):
+    model = Developer
+    template_name = "software/developer.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["software_list"] = self.object.software_set.all().order_by("category", "name")
+        return context

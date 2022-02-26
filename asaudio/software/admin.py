@@ -4,6 +4,7 @@ from .models import Developer, Category, Software
 
 class DeveloperAdmin(admin.ModelAdmin):
     list_display = ("name", "url",)
+    readonly_fields = ("id",)
 
 
 class CategoryAdmin(admin.ModelAdmin):
