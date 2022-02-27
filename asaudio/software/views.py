@@ -59,7 +59,7 @@ class SearchView(FormView):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             if cleaned_data["developer"] or cleaned_data["title"]:
-                software = Software.objects
+                software = Software.objects.filter(active=True)
                 if cleaned_data["developer"]:
                     software = software.filter(developer__name__icontains=cleaned_data["developer"])
                 if cleaned_data["title"]:

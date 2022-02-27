@@ -12,10 +12,12 @@
                 <li><h4 class="developer_category">{{ category.name }}</h4>
                     <ul class="software_list">
                         {% for title in category_software_list %}
+                            {% if title.active %}
                             <li><strong>{{ title.name }}</strong>
                                 {% if title.version %}<em>&mdash; {{ title.version }}</em>{% endif %}
                                 {% if title.notes %}<p>{{ title.notes|safe }}</p>{% endif %}
                             </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 </li>
