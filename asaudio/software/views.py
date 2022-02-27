@@ -15,6 +15,7 @@ def home(request):
     recent_updates = Software\
         .objects.select_related("developer", "category")\
         .filter(created__gte=tz.now()-tz.timedelta(days=settings.ASA_RECENT_UPDATES_DAYS))\
+        .filter(active=True)\
         .order_by("-created")[:settings.ASA_RECENT_UPDATES_MAX]
     context = {
         "recent_updates": recent_updates,
