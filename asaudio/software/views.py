@@ -3,19 +3,19 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
 from django.views.generic.detail import DetailView
 from django.db.models.functions import Lower
-from django.db.models import Q
 from django.utils import timezone as tz
 from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django import forms
+from django.conf import settings
 from .models import Category, Software, Developer
 
 
 def home(request):
     recent_updates = Software\
         .objects.select_related("developer", "category")\
-        .filter(created__gte=tz.now()-tz.timedelta(days=60))\
-        .order_by("-created")[:50]
+        .filter(created__gte=tz.now()-tz.timedelta(days=settings.ASA_RECENT_UPDATES_DAYS))\
+        .order_by("-created")[:settings.ASA_RECENT_UPDATES_MAX]
     context = {
         "recent_updates": recent_updates,
     }

@@ -2,9 +2,7 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-
     {% with developer=object %}
-    <div class="container pt-4">
         <h2 class="developer_name">{{ developer.name }}</h2>
         {% if developer.url %}<p><a href="{{ developer.url }}">{{ developer.url }}</a></p>{% endif %}
         {% if developer.notes %}<p>{{ developer.notes|safe }}</p>{% endif %}
@@ -23,7 +21,5 @@
                 </li>
             {% endfor %}
             </ul>
-    </div>
     {% endwith %}
-
 {% endblock %}

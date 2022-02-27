@@ -93,3 +93,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 BOOTSTRAP5 = {
     "theme_url": "/static/software/css/bootstrap.min.css"
 }
+
+# asaudio settings
+ASA_RECENT_UPDATES_MAX = 100
+ASA_RECENT_UPDATES_DAYS = 60
