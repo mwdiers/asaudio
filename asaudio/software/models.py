@@ -15,7 +15,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "Categories"
-        ordering = ["sequence"]
+        ordering = ["sequence", "name"]
 
 
 class Developer(models.Model):
@@ -38,6 +38,7 @@ class Software(models.Model):
     url = models.URLField(blank=True, null=True)
     version = models.CharField(max_length=20, blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
+    free = models.BooleanField(default=False, blank=True, null=False)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True, blank=False, null=False)
@@ -47,4 +48,5 @@ class Software(models.Model):
 
     class Meta:
         ordering = ["name"]
+        verbose_name_plural = "Software"
 

@@ -48,6 +48,7 @@ def get_developers():
 class SearchForm(forms.Form):
     developer = forms.CharField(label="developer", max_length=50, required=False)
     title = forms.CharField(label="software", max_length=50, required=False)
+    free = forms.BooleanField(label="free", required=False)
 
 
 class SearchView(FormView):
@@ -59,12 +60,14 @@ class SearchView(FormView):
         form = self.get_form()
         if form.is_valid():
             cleaned_data = form.cleaned_data
-            if cleaned_data["developer"] or cleaned_data["title"]:
+            if cleaned_data["developer"] or cleaned_data["title"] or cleaned_data["free"]:
                 software = Software.objects.filter(active=True)
                 if cleaned_data["developer"]:
                     software = software.filter(developer__name__icontains=cleaned_data["developer"])
                 if cleaned_data["title"]:
                     software = software.filter(name__icontains=cleaned_data["title"])
+                if cleaned_data["free"]:
+                    software = software.filter(free=True)
                 if software.count():
                     software = software.order_by(Lower("developer__name"), "category__sequence", Lower("name"))
                 else:

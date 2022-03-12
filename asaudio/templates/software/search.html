@@ -15,6 +15,10 @@
                 <input id="{{ form.software.id_for_label }}" name="{{ form.title.name }}" class="form-control" placeholder="Title">
                 <label for="{{ form.software.id_for_label }}" class="col-form-label">Software Title</label>
             </div>
+            <div class="col-auto form-check">
+                <input id="{{ form.free.id_for_label }}" name="{{ form.free.name }}" class="btn-check" type="checkbox" autocomplete="off">
+                <label for="{{ form.free.id_for_label }}" class="btn btn-outline-secondary">Free</label>
+            </div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
