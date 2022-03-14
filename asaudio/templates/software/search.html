@@ -8,15 +8,15 @@
         {{ form.non_field_errors }}
         <div class="row g-3 align-items-end">
             <div class="col-auto form-floating">
-                <input id="{{ form.developer.id_for_label }}" name="{{ form.developer.name }}" class="form-control" placeholder="Name">
+                <input id="{{ form.developer.id_for_label }}" name="{{ form.developer.name }}" class="form-control" placeholder="Name" value="{{ s_developer }}">
                 <label for="{{ form.developer.id_for_label }}" class="col-form-label">Developer </label>
             </div>
             <div class="col-auto form-floating">
-                <input id="{{ form.software.id_for_label }}" name="{{ form.title.name }}" class="form-control" placeholder="Title">
+                <input id="{{ form.software.id_for_label }}" name="{{ form.title.name }}" class="form-control" placeholder="Title" value="{{ s_title }}">
                 <label for="{{ form.software.id_for_label }}" class="col-form-label">Software Title</label>
             </div>
             <div class="col-auto form-check">
-                <input id="{{ form.free.id_for_label }}" name="{{ form.free.name }}" class="btn-check" type="checkbox" autocomplete="off">
+                <input id="{{ form.free.id_for_label }}" name="{{ form.free.name }}" class="btn-check" type="checkbox" autocomplete="off" {% if s_free %}checked{% endif %}>
                 <label for="{{ form.free.id_for_label }}" class="btn btn-outline-secondary">Free</label>
             </div>
             <div class="col-auto">
@@ -42,7 +42,8 @@
                                 <ul class="software_list">
                                     {% for title in category_software_list %}
                                         <li><strong>{{ title.name }}</strong>
-                                            {% if title.version %}<em>&mdash; {{ title.version }}</em>{% endif %}
+                                            {% if title.version %}&mdash; {{ title.version }}{% endif %}
+                                            {% if title.free %}&mdash; Free{% endif %}
                                             {% if title.notes %}<p>{{ title.notes|safe }}</p>{% endif %}
                                         </li>
                                     {% endfor %}

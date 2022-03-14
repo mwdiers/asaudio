@@ -75,7 +75,12 @@ class SearchView(FormView):
             else:
                 software = None
 
-            self.extra_context = {"software": software, "search": True}
+            self.extra_context = {"software": software,
+                                  "search": True,
+                                  "s_developer": cleaned_data["developer"],
+                                  "s_title": cleaned_data["title"],
+                                  "s_free": cleaned_data["free"]}
+
         return super().get(request, *args, **kwargs)
 
 
