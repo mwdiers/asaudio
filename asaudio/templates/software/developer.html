@@ -14,7 +14,8 @@
                         {% for title in category_software_list %}
                             {% if title.active %}
                             <li><strong>{{ title.name }}</strong>
-                                {% if title.version %}<em>&mdash; {{ title.version }}</em>{% endif %}
+                                {% if title.version %}&mdash; {{ title.version }}{% endif %}
+                                {% if title.free %}&mdash; Free{% endif %}
                                 {% if title.notes %}<p>{{ title.notes|safe }}</p>{% endif %}
                             </li>
                             {% endif %}
