@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ item.created|date:"d-M-Y" }}</td>
                 <td><a class="developer_link link-info" href="{% url "developer" item.developer.pk %}">{{ item.developer.name }}</a></td>
-                <td>{{ item.name }}</td>
+                <td>{% if item.url %}<a href="{{ item.url }}" class="developer_link link-info">{% endif %}{{ item.name }}{% if item.url %}</a>{% endif %}</td>
                 <td>{% if item.version %}{{ item.version }}{% endif %}</td>
                 <td>{{ item.category.name }}</td>
             </tr>

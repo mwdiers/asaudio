@@ -12,7 +12,7 @@
                 {% if developer.notes %}<p>{{ developer.notes|safe }}</p>{% endif %}
                 <ul class="software_list">
                     {% for software in software_list %}
-                        <li><strong>{{ software.name }}</strong>
+                        <li><strong>{% if software.url %}<a href="{{ software.url }}" class="developer_link link-info">{% endif %}{{ software.name }}{% if software.url %}</a>{% endif %}</strong>
                             {% if software.version %}&mdash; {{ software.version }}{% endif %}
                             {% if software.free %}&mdash; Free{% endif %}
                         {% if software.notes %}<p>{{ software.notes|safe }}</p>{% endif %}

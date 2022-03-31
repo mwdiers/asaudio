@@ -41,7 +41,7 @@
                             <li><h4 class="developer_category">{{ category.name }}</h4>
                                 <ul class="software_list">
                                     {% for title in category_software_list %}
-                                        <li><strong>{{ title.name }}</strong>
+                                        <li><strong>{% if title.url %}<a href="{{ title.url }}" class="developer_link link-info">{% endif %}{{ title.name }}{% if title.url %}</a>{% endif %}</strong>
                                             {% if title.version %}&mdash; {{ title.version }}{% endif %}
                                             {% if title.free %}&mdash; Free{% endif %}
                                             {% if title.notes %}<p>{{ title.notes|safe }}</p>{% endif %}
