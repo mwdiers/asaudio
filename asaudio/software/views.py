@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
 from django.views.generic.detail import DetailView
+from django.db.models import Count
 from django.db.models.functions import Lower
 from django.utils import timezone as tz
 from django.http import JsonResponse
@@ -21,6 +22,16 @@ def home(request):
         "recent_updates": recent_updates,
     }
     return render(request, 'home.html', context=context)
+
+
+def stats(request):
+    context = {
+        "categories": Category.objects.annotate(software_count=Count("software")).order_by("sequence"),
+        "developer_count": Developer.objects.count(),
+        "software_count": Software.objects.count(),
+        "free_count": Software.objects.filter(free=True).count(),
+    }
+    return render(request, "software/stats.html", context=context)
 
 
 class SoftwareListView(ListView):
