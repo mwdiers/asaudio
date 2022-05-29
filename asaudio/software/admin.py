@@ -17,6 +17,8 @@ class SoftwareAdmin(admin.ModelAdmin):
     list_editable = ("category", "url", "free", "active")
     list_filter = ("category",)
     search_fields = ("name", "developer__name", "free")
+    save_as = True
+    save_as_continue = False
 
 
 admin.site.register(Developer, DeveloperAdmin)
