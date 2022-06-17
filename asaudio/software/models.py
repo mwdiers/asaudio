@@ -40,7 +40,7 @@ class Software(models.Model):
     notes = models.TextField(blank=True, null=True)
     free = models.BooleanField(default=False, blank=True, null=False)
     updated = models.DateTimeField(auto_now=True)
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True, editable=True)
     active = models.BooleanField(default=True, blank=False, null=False)
 
     def __str__(self):
