@@ -14,8 +14,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class SoftwareAdmin(admin.ModelAdmin):
     list_display = ("name", "version", "developer", "category", "url", "free", "active")
-    list_editable = ("category", "url", "free", "active")
-    list_filter = ("category",)
+    list_editable = ("category", "version", "url", "free", "active")
+    list_filter = ("category", "active")
     search_fields = ("name", "developer__name", "free")
     save_as = True
     save_as_continue = False
